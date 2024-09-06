@@ -7,7 +7,7 @@ export const UserContext = createContext();
 export const UserStorage = ({children}) => {
 
     const[data,setData] = useState(null);
-    const{login, setLogin} = useState(null);
+    const[login, setLogin] = useState(false);
     const[loading,setLoading] = useState(false);
     const[error,setError] = useState(null);
     const navigate = useNavigate();
@@ -18,8 +18,8 @@ export const UserStorage = ({children}) => {
         setLoading(false);
         setLogin(false);
         window.localStorage.removeItem('token');
-        navigate('/login');
-    },[navigate]);
+      
+    },[]);
 
     
 
@@ -28,13 +28,13 @@ export const UserStorage = ({children}) => {
         const response = await fetch(url, options);
         const json = await response.json();
         setData(json);
-        setLoading(true);
+        setLogin (true);
     }
 
     async function userLogin(username, password) {
         try{
-            setError(null);
-            setLoading(true);
+        setError(null);
+        setLoading(true);
         const {url,options} = TOKEN_POST({username, password});
         const tokenRes = await fetch(url, options);
         if(!tokenRes.ok) throw new Error(`Error: ${tokenRes.statusText}`);
@@ -67,8 +67,11 @@ export const UserStorage = ({children}) => {
                 } finally{
                     setLoading(false);
                 }
+            }else{
+                setLogin(false);
             }
         }
+        autoLogin();
     },[userLogout])
 
 
