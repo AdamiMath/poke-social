@@ -36,3 +36,17 @@
     fill: #fb1;
 
 }
+
+.mobileButton{
+    background: #eee;
+    border-radius: .2rem;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    transition: .1s;
+    cursor: pointer;
+}
