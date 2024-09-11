@@ -1,5 +1,5 @@
 import React from 'react'
-import Fedd from './Feed/Feed'
+import Feed from './Feed/Feed'
 
 const Home = () => {
   return (

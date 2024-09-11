@@ -1,0 +1,60 @@
+.photo:nth-child(2) {
+    grid-column: 2 / 4;
+    grid-row: span 2;
+  }
+  
+  @media (max-width: 40rem) {
+    .photo:nth-child(2) {
+      grid-column: initial;
+      grid-row: initial;
+    }
+  }
+  
+  .photo {
+    display: grid;
+    position: relative;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .photo img {
+    width: 100%; /* Garante que a imagem ocupe todo o espaço do item */
+     /* Ajusta a altura da imagem para preencher o item */
+    object-fit: cover; /* Evita que a imagem distorça */
+  }
+  
+  .visualizacao {
+    position: absolute; /* Permite que o elemento fique sobre a imagem */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /* Ocupa toda a área do container */
+    background: rgba(0, 0, 0, 0.3); /* Cor de fundo transparente para a sobreposição */
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Esconde inicialmente */
+    transition: opacity 0.3s ease; /* Animação suave de aparecer */
+  }
+  
+  .photo:hover .visualizacao {
+    opacity: 1; /* Torna o elemento visível ao passar o mouse */
+  }
+  
+  .visualizacao::before {
+    width: 16px;
+    height: 10px;
+    content: '';
+    display: inline-block;
+    margin-right: 0.25rem;
+    background: url('') no-repeat;
+  }
+  
+  .photo:hover .visualizacao {
+    display: flex;
+  }
+  
