@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import usefecth from '../../Hooks/useFetch'
 import Error from '../Helper/Error'
 import { COMMENT_POST } from '../../api';
+import styles from './PhotoCommentsForm.module.css'
 const PhotoCommentsFrom = ({id, setComments}) => {
 
   const [comment, setComment] = useState('');
@@ -18,9 +19,9 @@ const PhotoCommentsFrom = ({id, setComments}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-        <textarea id="comment" name="comment" placeholder='Comente' value={comment} onChange={({target}) => setComment(target.value)}></textarea>
-        <button>Comentar</button>
+    <form className={styles.form} onSubmit={handleSubmit}>
+        <textarea className={styles.textarea} id="comment" name="comment" placeholder='Comente' value={comment} onChange={({target}) => setComment(target.value)}></textarea>
+        <button className={styles.button}>Comentar</button>
         <Error error={error} />
     </form>
   )
