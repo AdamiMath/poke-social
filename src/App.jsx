@@ -9,6 +9,9 @@ import Login from './Components/Login/Login'
 import { UserStorage } from './UserContext'
 import User from './Components/User/User'
 import ProtectedRouter from './Components/Helper/ProtectedRouter'
+import UserProfile from './Components/User/UserProfile'
+import Notfound from './Components/notfound'
+
 
 function App() {
  
@@ -23,6 +26,10 @@ function App() {
         <Route path="login/*" element={<Login />} />
         <Route path="conta/*" element={<ProtectedRouter><User /></ProtectedRouter>} />
         <Route path="foto/:id" element={<Photo />} />
+        <Route path="perfil/:user" element={<UserProfile />} />
+        <Route path="*" element={<Notfound />} />
+
+
       </Routes>
       <Footer />
       </UserStorage>

@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
 import Image from '../Helper/Image'
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
     const {photo, comments} = data
     const user = useContext(UserContext);
   return (
-    <div className={styles.photo}>
+    <div className={`${styles.photo} ${single ? styles.single : ''}`}>
         <div className={styles.img}>
             <Image src={photo.src} alt={photo.title} />
         </div>
@@ -22,7 +22,7 @@ const PhotoContent = ({ data }) => {
                    
                     <span className={styles.visualizacao}>{photo.acessos}</span>
                     </p>
-                    <h1 className='title'><Link to={`/foto/${photo.id}`}/>{photo.title}</h1>
+                    <h1 className='title'><Link to={`/foto/${photo.id}`}>{photo.title}</Link></h1>
                     <ul className={styles.attributes}>
                         <li>{photo.peso} kg</li>
                         <li>{photo.idade} anos</li>
