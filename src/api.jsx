@@ -149,3 +149,17 @@ export function PASSWORD_RESET(body){
         }
     }
 }
+
+export function GET_STATS(){
+    return{
+        url: API_URL + '/api/password/reset',
+        options: {
+            method: 'GET',
+            headers: {
+               
+                Authorization: 'Bearer ' + window.localStorage.getItem('token')
+            },
+     
+        }
+    }
+}

@@ -10,7 +10,7 @@ import { UserStorage } from './UserContext'
 import User from './Components/User/User'
 import ProtectedRouter from './Components/Helper/ProtectedRouter'
 import UserProfile from './Components/User/UserProfile'
-import Notfound from './Components/notfound'
+import Notfound from './Components/Notfound'
 
 
 function App() {

@@ -6,7 +6,7 @@ import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset'; 
 import { UserContext } from '../../UserContext';
 import styles from './Login.module.css'
-import Notfound from '../notfound';
+import Notfound from '../Notfound';
 
 const Login = () => {
 
